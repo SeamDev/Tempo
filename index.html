@@ -32,8 +32,51 @@
 
   <title>tempo</title>
   <link rel="manifest" href="manifest.json">
+    <style>
+    body {
+      margin: 0;
+      background-color: #000; /* Black background */
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .loader {
+      text-align: center;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading AstroAir...</div>
+  </div>
+  <script>
+    window.addEventListener("flutter-first-frame",function (){
+      document.getElementById("loading").style.display = "none";
+    })
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
